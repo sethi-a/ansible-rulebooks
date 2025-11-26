@@ -5,8 +5,8 @@
   sources:
     - name: Watch for any updated table
       servicenow.itsm.records:
-        table: "{{ servicenow_table }}"
-        interval: "{{ servicenow_interval }}"
+        table: "sc_request"
+        interval: "5"
         remote_servicenow_timezone: America/New_York
 
   rules:
