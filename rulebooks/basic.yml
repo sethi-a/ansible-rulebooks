@@ -6,9 +6,7 @@
       servicenow.itsm.records:
         table: sc_request
         interval: 5
-
   rules:
-
     - name: New record created and debug
       condition: event.sys_id is defined
       action:
