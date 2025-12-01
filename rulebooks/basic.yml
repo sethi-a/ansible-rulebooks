@@ -7,7 +7,6 @@
       servicenow.itsm.records:
         table: "sc_request"
         interval: "5"
-        remote_servicenow_timezone: America/New_York
 
   rules:
 
