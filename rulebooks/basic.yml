@@ -3,12 +3,9 @@
   hosts: all
   execution_strategy: parallel
   sources:
-    - name: Watch for any updated table
-      servicenow.itsm.incidents:
-        instance_url: "https://dev181601.service-now.com"
-        username: "{{ servicenow_username }}"
-        password: "{{ servicenow_password }}"
-        query: "active=true^priority=1"
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 6000
 
   rules:
 
