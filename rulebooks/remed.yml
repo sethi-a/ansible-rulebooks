@@ -7,7 +7,7 @@
         event_stream_name: ServiceNow_Incident_Stream # Match the name from step 2
   rules:
     - name: New High-Priority Incident
-      condition: event.payload.table_name == 'incident' and event.payload.priority == 5
+      condition: event.payload.category == 'inquiry' and event.payload.priority == '5'
       actions:
         - run_job_template:
             name: "Triage High Priority Incident"
