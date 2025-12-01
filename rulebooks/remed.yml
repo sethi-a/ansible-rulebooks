@@ -9,9 +9,5 @@
     - name: New High-Priority Incident
       actions:
         - run_job_template:
-            name: "Triage High Priority Incident"
+            name: "Demo Job Template"
             organization: Default
-            # Pass necessary event data to the Job Template's extra_vars
-            extra_vars:
-              incident_sys_id: "{{ event.payload.sys_id }}"
-              incident_number: "{{ event.payload.number }}"
