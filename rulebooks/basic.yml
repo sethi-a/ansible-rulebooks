@@ -4,9 +4,11 @@
   execution_strategy: parallel
   sources:
     - name: Watch for any updated table
-      servicenow.itsm.records:
-        table: "sc_request"
-        interval: "5"
+      servicenow.itsm.incidents:
+        instance_url: "https://dev181601.service-now.com"
+        username: "{{ servicenow_username }}"
+        password: "{{ servicenow_password }}"
+        query: "active=true^priority=1"
 
   rules:
 
