@@ -1,0 +1,18 @@
+---
+- name: ServiceNow Incident Remediation
+  hosts: all
+  sources:
+    - name: ServiceNow_Incident_Stream
+      ansible.eda.event_stream:
+        event_stream_name: ServiceNow_Incident_Stream # Match the name from step 2
+  rules:
+    - name: New High-Priority Incident
+      condition: event.payload.table_name == 'incident' and event.payload.priority == 1
+      actions:
+        - run_job_template:
+            name: "Triage High Priority Incident"
+            organization: Default
+            # Pass necessary event data to the Job Template's extra_vars
+            extra_vars:
+              incident_sys_id: "{{ event.payload.sys_id }}"
+              incident_number: "{{ event.payload.number }}"
