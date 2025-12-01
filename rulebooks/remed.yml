@@ -2,7 +2,7 @@
 - name: ServiceNow Incident Remediation
   hosts: all
   sources:
-    - name: ServiceNow_Incident_Stream
+    - name: my_webhook_source
       ansible.eda.event_stream:
         event_stream_name: ServiceNow_Incident_Stream # Match the name from step 2
   rules:
